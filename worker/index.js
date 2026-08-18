@@ -60,13 +60,7 @@ const html = `<!doctype html>
 
 export default {
   async fetch(request) {
-    const url = new URL(request.url);
-    const pathname = url.pathname.replace(/\/$/, "") || "/";
-    if (pathname === "/og.png") {
-      return new Response(decodeDataUrl(ogData), {
-        headers: { "content-type": "image/png", "cache-control": "public, max-age=31536000, immutable" },
-      });
-    }
+    const pathname = new URL(request.url).pathname.replace(/\/$/, "") || "/";
     if (pathname !== "/") return new Response("Not found", { status: 404 });
     return new Response(html, { headers: {
       "content-type": "text/html; charset=utf-8",
