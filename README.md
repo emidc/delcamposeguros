@@ -1,19 +1,31 @@
-# Sites Worker ESM starter
+# Del Campo Seguros
 
-Use this starter for a static microsite, click counter, or simple internal UI whose state is browser-scoped. It has no dependencies and needs no install.
+Del Campo Seguros is a Spanish-language website prototype for an insurance
+broker. It presents the firm's value proposition, services, working method, and
+an internal decision survey.
 
-Edit `worker/index.js`. Use the Sites checkpoint when a coherent milestone is ready to inspect or share; the remote builder then runs the checked-in build and validation scripts. Do not run them as a normal pre-checkpoint step.
+The application is a dependency-free Sites worker-style project. The complete
+website source is in `worker/index.js`; raster source assets are in `assets/`.
+See [`docs/product.md`](docs/product.md) for the current product scope and
+[`docs/architecture.md`](docs/architecture.md) for the technical design.
 
-The build copies only `worker/index.js` and `.openai/hosting.json`. Do not add standalone asset files. Embed any essential raster bytes in `worker/index.js` and serve or reference them as a data URL.
+## Development
 
-For targeted diagnosis after a remote build failure, the same commands are available in the Sites Linux environment:
+- Edit `worker/index.js` for application changes.
+- Never edit `dist/`; it is generated and ignored by Git.
+- Keep `.openai/hosting.json` as part of the Sites deployment configuration.
+- Do not add dependencies unless the project has a clear need for one.
+
+Run the canonical quality gate with:
 
 ```sh
-bash scripts/build.sh
-node scripts/validate-artifact.mjs
+npm run verify
 ```
 
-The deterministic build produces:
+This rebuilds `dist/` and validates the generated artifact. The build embeds the
+PNG assets into the generated worker, so the output is self-contained.
+
+The generated layout is:
 
 ```text
 dist/
@@ -22,5 +34,3 @@ dist/
 └── server/
     └── index.js
 ```
-
-`dist/server/index.js` is an ES module with a default export containing `fetch(request, env, ctx)`. Edit `worker/index.js`, not the generated file under `dist/`.
