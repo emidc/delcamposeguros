@@ -15,6 +15,15 @@ const assets = [
   ["__SECTOR_ENERGIA_MINERIA_DATA__", "assets/sector-energia-mineria.jpg"],
   ["__SECTOR_TRANSPORTE_DATA__", "assets/sector-transporte.jpg"],
   ["__WHATSAPP_ICON_DATA__", "assets/whatsapp.svg"],
+  ["__COVERAGE_PROPERTY_DATA__", "assets/coverage-property.jpg"],
+  ["__COVERAGE_LIABILITY_DATA__", "assets/coverage-liability.jpg"],
+  ["__COVERAGE_TRANSPORT_DATA__", "assets/coverage-transport.jpg"],
+  ["__COVERAGE_CONTRACTS_DATA__", "assets/coverage-contracts.jpg"],
+  ["__COVERAGE_TEAM_DATA__", "assets/coverage-team.jpg"],
+  ["__COVERAGE_SPECIAL_DATA__", "assets/coverage-special.jpg"],
+  ["__COVERAGE_HOME_DATA__", "assets/coverage-home.jpg"],
+  ["__COVERAGE_AUTO_DATA__", "assets/coverage-auto.jpg"],
+  ["__COVERAGE_LIFE_DATA__", "assets/coverage-life.jpg"],
 ];
 
 let source = await readFile(workerPath, "utf8");

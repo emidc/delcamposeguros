@@ -19,6 +19,8 @@ The single landing page includes:
 - Navigation through anchors within the page.
 - Direct contact through WhatsApp, phone, and
   `gestion@delcampobroker.com` email links.
+- Professional Argentine voseo throughout the public-facing copy.
+- Contextual photography on every sector, company, and personal coverage card.
 - Responsive layouts for desktop and smaller screens.
 
 ## Current boundaries

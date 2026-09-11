@@ -28,13 +28,14 @@ are no runtime package imports or backend application APIs.
 
 ## Assets
 
-Sector photographs and the WhatsApp icon live in `assets/`. The brand mark and
-full logo are stored as inline WebP data constants in `worker/index.js`.
+Sector and coverage photographs and the WhatsApp icon live in `assets/`. The
+brand mark and full logo are stored as inline WebP data constants in
+`worker/index.js`.
 
-`worker/index.js` contains placeholders for the five sector JPEGs and the
-WhatsApp SVG. During the build, `scripts/embed-assets.mjs` reads the source
-assets, creates base64 data URLs, and replaces the matching placeholders in the
-generated worker.
+`worker/index.js` contains placeholders for the five sector JPEGs, nine coverage
+JPEGs, and the WhatsApp SVG. During the build, `scripts/embed-assets.mjs` reads
+the source assets, creates base64 data URLs, and replaces the matching
+placeholders in the generated worker.
 
 Source assets and placeholders must remain aligned. Do not manually paste
 encoded raster data into `worker/index.js` or edit the generated artifact.
