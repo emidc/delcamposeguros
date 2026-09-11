@@ -1,10 +1,11 @@
 {
-  "name": "ic-web-01-onboarding",
+  "name": "del-campo-seguros",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "bash scripts/build.sh",
-    "validate": "node scripts/validate-artifact.mjs"
+    "validate": "node scripts/validate-artifact.mjs",
+    "verify": "npm run build && npm run validate"
   },
-  "displayName": "IC-WEB-01 \u00b7 Onboarding"
+  "displayName": "Del Campo Seguros"
 }
