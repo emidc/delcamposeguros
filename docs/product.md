@@ -8,7 +8,9 @@ and direct contact channels.
 
 The page addresses companies and individuals. Coverage is organized in three
 clear paths: by business sector, for companies, and for people. The personal
-offering highlights home, auto, and life insurance.
+offering highlights home, auto, and life insurance. Both company and personal
+coverage paths begin by understanding the relevant risks before deciding which
+ones should be prevented, transferred, or insured.
 
 ## Current experience
 
@@ -21,6 +23,8 @@ The single landing page includes:
   `gestion@delcampobroker.com` email links.
 - Professional Argentine voseo throughout the public-facing copy.
 - Contextual photography on every sector, company, and personal coverage card.
+- Official Del Campo Gestión de Riesgos brand assets in the header, hero, footer,
+  and browser icon.
 - Responsive layouts for desktop and smaller screens.
 
 ## Current boundaries

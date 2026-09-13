@@ -6,9 +6,9 @@ const projectRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const workerPath = resolve(projectRoot, "dist/server/index.js");
 
 const assets = [
-  ["__DEL_CAMPO_LOGO_DATA__", "assets/del-campo-logo.png"],
-  ["__DEL_CAMPO_FAVICON_DATA__", "assets/del-campo-favicon.png"],
-  ["__DEL_CAMPO_OG_DATA__", "assets/del-campo-og.png"],
+  ["__BRAND_ISOTIPO_DATA__", "assets/brand-isotipo.png"],
+  ["__BRAND_HORIZONTAL_DATA__", "assets/brand-horizontal.png"],
+  ["__BRAND_HERO_DATA__", "assets/brand-hero.png"],
   ["__SECTOR_BODEGAS_DATA__", "assets/sector-bodegas.jpg"],
   ["__SECTOR_INDUSTRIA_DATA__", "assets/sector-industria.jpg"],
   ["__SECTOR_CONSTRUCCION_DATA__", "assets/sector-construccion.jpg"],
