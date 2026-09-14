@@ -8,7 +8,6 @@ const workerPath = resolve(projectRoot, "dist/server/index.js");
 const assets = [
   ["__BRAND_ISOTIPO_DATA__", "assets/brand-isotipo.png"],
   ["__BRAND_HORIZONTAL_DATA__", "assets/brand-horizontal.png"],
-  ["__BRAND_HERO_DATA__", "assets/brand-hero.png"],
   ["__SECTOR_BODEGAS_DATA__", "assets/sector-bodegas.jpg"],
   ["__SECTOR_INDUSTRIA_DATA__", "assets/sector-industria.jpg"],
   ["__SECTOR_CONSTRUCCION_DATA__", "assets/sector-construccion.jpg"],
@@ -24,6 +23,14 @@ const assets = [
   ["__COVERAGE_HOME_DATA__", "assets/coverage-home.jpg"],
   ["__COVERAGE_AUTO_DATA__", "assets/coverage-auto.jpg"],
   ["__COVERAGE_LIFE_DATA__", "assets/coverage-life.jpg"],
+  ["__TEAM_MANUEL_DATA__", "assets/team-manuel.jpg"],
+  ["__TEAM_VICTORIA_DATA__", "assets/team-victoria.jpg"],
+  ["__TEAM_JIMENA_DATA__", "assets/team-jimena.jpg"],
+  ["__TEAM_LUCIA_DATA__", "assets/team-lucia.jpg"],
+  ["__TEAM_PILAR_DATA__", "assets/team-pilar.jpg"],
+  ["__TEAM_MATIAS_DATA__", "assets/team-matias.jpg"],
+  ["__TEAM_EVANGELINA_DATA__", "assets/team-evangelina.jpg"],
+  ["__TEAM_EMILIANO_DATA__", "assets/team-emiliano.jpg"],
 ];
 
 let source = await readFile(workerPath, "utf8");

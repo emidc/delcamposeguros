@@ -28,11 +28,11 @@ are no runtime package imports or backend application APIs.
 
 ## Assets
 
-Sector and coverage photographs, the WhatsApp icon, and the official brand
-variants live in `assets/`.
+Sector, coverage, and temporary team photographs, the WhatsApp icon, and the
+official brand variants live in `assets/`.
 
 `worker/index.js` contains placeholders for the five sector JPEGs, nine coverage
-JPEGs, three brand PNGs, and the WhatsApp SVG. During the build,
+JPEGs, eight team JPEGs, two brand PNGs, and the WhatsApp SVG. During the build,
 `scripts/embed-assets.mjs` reads the source assets, creates base64 data URLs, and
 replaces the matching placeholders in the generated worker.
 

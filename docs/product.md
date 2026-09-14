@@ -16,8 +16,9 @@ ones should be prevented, transferred, or insured.
 
 The single landing page includes:
 
-- Brand and value proposition, service principles, working method, sector-based
-  coverage, company coverage, personal coverage, and contact sections.
+- Brand and value proposition, service principles, team, working method,
+  sector-based coverage, company coverage, personal coverage, and contact
+  sections.
 - Navigation through anchors within the page.
 - Direct contact through WhatsApp, phone, and
   `gestion@delcampobroker.com` email links.
@@ -25,6 +26,8 @@ The single landing page includes:
 - Contextual photography on every sector, company, and personal coverage card.
 - Official Del Campo Gestión de Riesgos brand assets in the header, hero, footer,
   and browser icon.
+- A team section with concise responsibilities for eight members. The current
+  portraits are stock placeholders intended to be replaced by official photos.
 - Responsive layouts for desktop and smaller screens.
 
 ## Current boundaries
