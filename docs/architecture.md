@@ -28,7 +28,7 @@ are no runtime package imports or backend application APIs.
 
 ## Assets
 
-Sector, coverage, and temporary team photographs, the WhatsApp icon, and the
+Sector, coverage, and official team photographs, the WhatsApp icon, and the
 official brand variants live in `assets/`.
 
 `worker/index.js` contains placeholders for the five sector JPEGs, nine coverage

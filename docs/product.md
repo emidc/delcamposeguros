@@ -26,8 +26,8 @@ The single landing page includes:
 - Contextual photography on every sector, company, and personal coverage card.
 - Official Del Campo Gestión de Riesgos brand assets in the header, hero, footer,
   and browser icon.
-- A team section with concise responsibilities for eight members. The current
-  portraits are stock placeholders intended to be replaced by official photos.
+- A team section with official portraits and concise responsibilities for eight
+  members.
 - Responsive layouts for desktop and smaller screens.
 
 ## Current boundaries
