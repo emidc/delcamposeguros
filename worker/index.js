@@ -1,568 +1,94 @@
-const logoData = "__DEL_CAMPO_LOGO_DATA__";
-const faviconData = "__DEL_CAMPO_FAVICON_DATA__";
-const ogData = "__DEL_CAMPO_OG_DATA__";
+const BRAND_ISOTIPO = "__BRAND_ISOTIPO_DATA__";
+const BRAND_HORIZONTAL = "__BRAND_HORIZONTAL_DATA__";
 
-function renderHtml(origin) {
-  return `<!doctype html>
+const SECTOR_BODEGAS = "__SECTOR_BODEGAS_DATA__";
+const SECTOR_INDUSTRIA = "__SECTOR_INDUSTRIA_DATA__";
+const SECTOR_CONSTRUCCION = "__SECTOR_CONSTRUCCION_DATA__";
+const SECTOR_ENERGIA_MINERIA = "__SECTOR_ENERGIA_MINERIA_DATA__";
+const SECTOR_TRANSPORTE = "__SECTOR_TRANSPORTE_DATA__";
+const WHATSAPP_ICON = "__WHATSAPP_ICON_DATA__";
+const COVERAGE_PROPERTY = "__COVERAGE_PROPERTY_DATA__";
+const COVERAGE_LIABILITY = "__COVERAGE_LIABILITY_DATA__";
+const COVERAGE_TRANSPORT = "__COVERAGE_TRANSPORT_DATA__";
+const COVERAGE_CONTRACTS = "__COVERAGE_CONTRACTS_DATA__";
+const COVERAGE_TEAM = "__COVERAGE_TEAM_DATA__";
+const COVERAGE_SPECIAL = "__COVERAGE_SPECIAL_DATA__";
+const COVERAGE_HOME = "__COVERAGE_HOME_DATA__";
+const COVERAGE_AUTO = "__COVERAGE_AUTO_DATA__";
+const COVERAGE_LIFE = "__COVERAGE_LIFE_DATA__";
+const TEAM_MANUEL = "__TEAM_MANUEL_DATA__";
+const TEAM_VICTORIA = "__TEAM_VICTORIA_DATA__";
+const TEAM_JIMENA = "__TEAM_JIMENA_DATA__";
+const TEAM_LUCIA = "__TEAM_LUCIA_DATA__";
+const TEAM_PILAR = "__TEAM_PILAR_DATA__";
+const TEAM_MATIAS = "__TEAM_MATIAS_DATA__";
+const TEAM_EVANGELINA = "__TEAM_EVANGELINA_DATA__";
+const TEAM_EMILIANO = "__TEAM_EMILIANO_DATA__";
+
+const html = `<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Del Campo Broker de Seguros: coberturas bien pensadas, asesoramiento cercano y acompañamiento real." />
-  <meta name="theme-color" content="#264653" />
-  <link rel="icon" type="image/png" href="${faviconData}" />
-  <link rel="apple-touch-icon" href="${faviconData}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Del Campo — Broker de Seguros" />
-  <meta property="og:description" content="Protección con criterio. Acompañamiento real." />
-  <meta property="og:image" content="${origin}/og.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Del Campo — Broker de Seguros" />
-  <meta name="twitter:description" content="Protección con criterio. Acompañamiento real." />
-  <meta name="twitter:image" content="${origin}/og.png" />
-  <title>Del Campo — Broker de Seguros</title>
-  <style>
-    :root {
-      --ink:#2f4f4f; --forest:#264653; --forest-2:#2f5d68; --sage:#a9d6e5;
-      --cream:#eaf4f7; --paper:#f8fcfd; --white:#fff; --gold:#4ca9bf;
-      --muted:#5f7479; --line:rgba(38,70,83,.14); --shadow:0 28px 80px rgba(38,70,83,.16);
-      --radius:22px; --max:1200px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
-    button,a{font:inherit}
-    a{color:inherit}
-    button:focus-visible,a:focus-visible{outline:3px solid rgba(76,169,191,.52);outline-offset:3px}
-    .prototype-bar{min-height:38px;background:#2f4f4f;color:rgba(255,255,255,.82);display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 24px;font-size:12px;letter-spacing:.02em;text-align:center}
-    .prototype-dot{width:7px;height:7px;border-radius:50%;background:#a9d6e5;box-shadow:0 0 0 4px rgba(169,214,229,.15)}
-    .shell{max-width:var(--max);margin:0 auto;padding:0 32px}
-    .nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{display:flex;align-items:center;gap:13px;text-decoration:none;min-width:0}
-    .brand-logo{width:194px;height:68px;object-fit:contain;display:block}
-    .brand-mark{width:44px;height:44px;object-fit:contain;display:block}
-    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px}
-    .nav-links a{text-decoration:none;color:#3e4b46}
-    .nav-links a:hover{color:var(--forest)}
-    .button{border:1px solid transparent;min-height:48px;padding:12px 19px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:700;cursor:pointer;transition:.2s ease}
-    .button:hover{transform:translateY(-2px)}
-    .button.primary{background:var(--forest);color:white;box-shadow:0 12px 30px rgba(38,70,83,.2)}
-    .button.primary:hover{background:var(--forest-2)}
-    .button.secondary{border-color:rgba(21,55,46,.22);background:rgba(255,255,255,.68);color:var(--forest)}
-    .button.small{min-height:40px;padding:9px 15px;font-size:13px}
-    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#e5f3f7 0%,#f8fcfd 48%,#d8edf3 100%);border-top:1px solid rgba(38,70,83,.08)}
-    .hero:before{content:"";position:absolute;inset:auto -12% -45% auto;width:720px;height:720px;border-radius:50%;border:1px solid rgba(38,70,83,.13);box-shadow:0 0 0 90px rgba(255,255,255,.16),0 0 0 180px rgba(76,169,191,.06)}
-    .hero-grid{min-height:650px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:70px;padding-top:74px;padding-bottom:86px;position:relative;z-index:1}
-    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--forest);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800}
-    .eyebrow:before{content:"";width:34px;height:1px;background:var(--gold)}
-    h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(48px,6.1vw,82px);line-height:.99;letter-spacing:-.045em;margin:23px 0 25px;max-width:780px}
-    h1 em{font-weight:500;color:var(--forest)}
-    .hero-lead{font-size:18px;line-height:1.65;color:#4f5d57;max-width:660px;margin:0 0 33px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .hero-foot{display:flex;gap:26px;align-items:center;margin-top:34px;color:#53605b;font-size:12px}
-    .hero-foot span{display:flex;align-items:center;gap:7px}
-    .check{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:rgba(21,55,46,.09);color:var(--forest);font-size:11px;font-weight:900}
-    .clarity-card{position:relative;background:rgba(255,255,255,.78);border:1px solid rgba(21,55,46,.13);box-shadow:var(--shadow);border-radius:28px;padding:30px;backdrop-filter:blur(12px)}
-    .card-kicker{text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-size:10px;font-weight:800}
-    .card-title{font-family:Georgia,"Times New Roman",serif;font-size:29px;line-height:1.12;margin:8px 0 24px}
-    .risk-row{border-top:1px solid var(--line);padding:17px 0;display:grid;grid-template-columns:42px 1fr auto;gap:13px;align-items:center}
-    .risk-icon{width:38px;height:38px;border-radius:12px;background:#e4f2f6;display:grid;place-items:center;color:var(--forest);font-weight:800}
-    .risk-copy strong{display:block;font-size:14px}
-    .risk-copy span{color:var(--muted);font-size:12px}
-    .risk-state{font-size:11px;font-weight:800;padding:5px 9px;border-radius:999px;background:#d9edf3;color:#264653}
-    .risk-state.warn{background:#cde8ef;color:#2f5d68}
-    .card-note{margin-top:9px;padding:15px;border-radius:14px;background:var(--forest);color:white;display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .card-note span{color:rgba(255,255,255,.68);font-size:11px;display:block}
-    .card-note strong{font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:500}
-    .trust-strip{border-bottom:1px solid var(--line);background:white}
-    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);min-height:105px}
-    .trust-item{padding:24px 28px;border-right:1px solid var(--line);display:flex;gap:14px;align-items:center}
-    .trust-item:first-child{padding-left:0}.trust-item:last-child{border-right:0}
-    .trust-number{font-family:Georgia,"Times New Roman",serif;color:var(--gold);font-size:28px}
-    .trust-item strong{display:block;font-size:13px}.trust-item span{font-size:12px;color:var(--muted)}
-    .survey-fab{position:fixed;right:22px;bottom:22px;z-index:20;background:#4ca9bf;color:#173c49;border:0;box-shadow:0 16px 38px rgba(38,70,83,.25)}
-    .arrow{font-size:18px;line-height:1}
-    .section{padding:112px 0}
-    .section.soft{background:var(--cream)}
-    .section.dark{background:var(--forest);color:white;position:relative;overflow:hidden}
-    .section.dark:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:-160px;top:-250px;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.018)}
-    .section-head{max-width:800px;margin-bottom:55px}
-    .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
-    .section-head.center .eyebrow{justify-content:center}
-    .section-head h2,.split-copy h2,.contact-copy h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(37px,4.6vw,59px);font-weight:500;line-height:1.06;letter-spacing:-.035em;margin:19px 0 18px}
-    .section-head p,.split-copy>p,.contact-copy>p{font-size:17px;color:var(--muted);max-width:700px}
-    .dark .section-head p,.dark .split-copy>p{color:rgba(255,255,255,.66)}
-    .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .audience-card{min-height:360px;border:1px solid var(--line);border-radius:var(--radius);padding:36px;background:white;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:.25s ease}
-    .audience-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-    .audience-card.business{background:linear-gradient(145deg,#264653,#2f6774);color:white}
-    .audience-card:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid currentColor;opacity:.1;right:-55px;top:-70px;box-shadow:0 0 0 35px currentColor}
-    .card-index{font-family:Georgia,"Times New Roman",serif;font-size:15px;color:var(--gold)}
-    .audience-card h3{font-family:Georgia,"Times New Roman",serif;font-size:36px;font-weight:500;margin:50px 0 14px;line-height:1.05}
-    .audience-card p{color:var(--muted);max-width:470px;margin:0}
-    .audience-card.business p{color:rgba(255,255,255,.68)}
-    .link-arrow{margin-top:28px;text-decoration:none;font-weight:800;font-size:13px;display:inline-flex;gap:9px;align-items:center}
-    .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-    .method{background:var(--paper);padding:38px 32px;min-height:305px}
-    .method-num{font-family:Georgia,"Times New Roman",serif;font-size:42px;color:var(--gold);display:block;margin-bottom:50px}
-    .method h3{font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:500;margin:0 0 12px}
-    .method p{font-size:14px;color:var(--muted);margin:0}
-    .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .service{border:1px solid var(--line);border-radius:18px;background:white;padding:28px;display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start}
-    .service-icon{width:48px;height:48px;border-radius:15px;background:#e2f1f5;color:var(--forest);display:grid;place-items:center;font-family:Georgia,"Times New Roman",serif;font-size:18px}
-    .service h3{margin:1px 0 7px;font-size:17px}.service p{margin:0;color:var(--muted);font-size:13px}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;position:relative;z-index:1}
-    .principles{display:grid;gap:12px}
-    .principle{border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:16px;background:rgba(255,255,255,.045)}
-    .principle b{color:#a9d6e5;font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:500}
-    .principle strong{display:block;margin-bottom:4px}.principle span{font-size:13px;color:rgba(255,255,255,.6)}
-    .claim-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
-    .claim-quote{background:#dceff4;border-radius:var(--radius);padding:48px;position:relative}
-    .quote-mark{font-family:Georgia,"Times New Roman",serif;font-size:80px;line-height:.6;color:var(--gold);opacity:.8}
-    .claim-quote blockquote{font-family:Georgia,"Times New Roman",serif;font-size:30px;line-height:1.27;margin:22px 0 25px}
-    .claim-quote footer{font-size:12px;color:var(--muted)}
-    .check-list{display:grid;gap:18px;margin-top:30px}
-    .check-line{display:grid;grid-template-columns:30px 1fr;gap:13px}
-    .check-line i{width:28px;height:28px;border-radius:50%;background:#dceff4;color:var(--forest);display:grid;place-items:center;font-style:normal;font-weight:900}
-    .check-line strong{display:block;margin-bottom:3px}.check-line span{font-size:13px;color:var(--muted)}
-    .team-note{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:end;padding:45px;border:1px solid var(--line);border-radius:var(--radius);background:white}
-    .team-note h3{font-family:Georgia,"Times New Roman",serif;font-size:34px;font-weight:500;margin:0 0 12px}
-    .team-note p{margin:0;color:var(--muted);max-width:720px}
-    .role-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-    .role-pills span{border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:11px;color:#4f6267;background:#f5fbfc}
-    .contact{padding:95px 0;background:#cfe7ed}
-    .contact-grid{display:grid;grid-template-columns:1fr .9fr;gap:80px;align-items:start}
-    .contact-points{display:grid;gap:12px;margin-top:28px;color:#47534e;font-size:14px}
-    .contact-card{background:white;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
-    .field{display:grid;gap:7px;margin-bottom:16px}.field label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#56635e}
-    .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:#fdfcf8;color:var(--ink);font:inherit}
-    .field textarea{min-height:92px;resize:vertical}.contact-card .button{width:100%}
-    .form-note{font-size:11px;color:var(--muted);margin:11px 0 0;text-align:center}
-    .footer{background:#2f4f4f;color:white;padding:50px 0 32px}
-    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:start}
-    .footer .brand-logo{filter:brightness(0) invert(1);opacity:.92}.footer-links{display:flex;gap:25px;font-size:13px;color:rgba(255,255,255,.72)}
-    .footer-links a{text-decoration:none}.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;color:rgba(255,255,255,.46);font-size:11px}
-    .survey-overlay{position:fixed;inset:0;z-index:100;background:rgba(7,20,16,.72);display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(8px)}
-    .survey-overlay.open{display:flex}
-    .survey-panel{width:min(940px,100%);max-height:min(850px,94vh);background:var(--paper);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.32);display:grid;grid-template-rows:auto 1fr auto}
-    .survey-head{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;background:white}
-    .survey-title{display:flex;align-items:center;gap:13px}.survey-title strong{display:block}.survey-title span{display:block;color:var(--muted);font-size:11px}
-    .close{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:white;cursor:pointer;font-size:20px;color:var(--muted)}
-    .progress-track{height:3px;background:#e6e3da}.progress-fill{height:100%;width:10%;background:var(--gold);transition:width .3s ease}
-    .survey-body{padding:42px 52px 36px;overflow:auto}
-    .step-label{text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--gold);font-weight:900}
-    .question-title{font-family:Georgia,"Times New Roman",serif;font-size:34px;font-weight:500;line-height:1.15;margin:14px 0 9px}
-    .question-help{color:var(--muted);font-size:14px;margin:0 0 27px}
-    .choices{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
-    .choice{border:1px solid var(--line);border-radius:14px;background:white;padding:17px;text-align:left;cursor:pointer;min-height:76px;display:flex;align-items:center;gap:12px;color:var(--ink)}
-    .choice:hover{border-color:rgba(38,70,83,.45)}.choice.selected{border-color:var(--forest);background:#e2f1f5;box-shadow:inset 0 0 0 1px var(--forest)}
-    .choice-mark{width:20px;height:20px;border-radius:50%;border:1px solid #aeb7b0;display:grid;place-items:center;flex:none}.choice.selected .choice-mark{background:var(--forest);border-color:var(--forest);color:white}
-    .survey-text{width:100%;min-height:150px;border:1px solid var(--line);border-radius:14px;padding:16px;background:white;font:inherit;resize:vertical}
-    .survey-foot{padding:18px 26px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:white}
-    .survey-foot .button{min-width:120px}.survey-count{font-size:12px;color:var(--muted)}
-    .summary-list{display:grid;gap:10px;margin-top:25px}.summary-item{border:1px solid var(--line);background:white;border-radius:12px;padding:14px 16px}.summary-item strong{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}.summary-item span{font-size:14px}
-    .success-icon{width:54px;height:54px;border-radius:18px;background:#dceff4;color:var(--forest);display:grid;place-items:center;font-size:25px;margin-bottom:20px}
-    .toast{position:fixed;z-index:200;left:50%;bottom:30px;transform:translate(-50%,20px);background:#2f4f4f;color:white;padding:12px 18px;border-radius:999px;box-shadow:0 15px 35px rgba(0,0,0,.22);font-size:13px;opacity:0;pointer-events:none;transition:.25s ease}.toast.show{opacity:1;transform:translate(-50%,0)}
-    body.modal-open{overflow:hidden}
-    @media(max-width:920px){.nav-links a:not(.button){display:none}.hero-grid,.split,.claim-panel,.contact-grid{grid-template-columns:1fr;gap:44px}.clarity-card{max-width:650px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line);padding-left:0}.trust-item:last-child{border-bottom:0}.hero:before{right:-55%;bottom:-15%}.method-grid{grid-template-columns:1fr}.method{min-height:auto}.audience-grid{grid-template-columns:1fr}.team-note{grid-template-columns:1fr;align-items:start}.services-grid{grid-template-columns:1fr}.section{padding:82px 0}.footer-grid{grid-template-columns:1fr}}
-    @media(max-width:620px){.shell{padding-left:20px;padding-right:20px}.nav{height:76px}.brand-logo{width:142px;height:54px}.nav-links{gap:10px}.nav-links .button{padding:8px 12px}.hero-grid{padding-top:55px;padding-bottom:70px}.hero-lead{font-size:16px}.hero-actions{display:grid}.hero-actions .button{width:100%}.hero-foot{display:grid;gap:10px}.clarity-card{padding:22px}.survey-fab{left:20px;right:20px;bottom:16px}.trust-number{font-size:23px}.section{padding:68px 0}.section-head{margin-bottom:38px}.audience-card{padding:26px;min-height:310px}.audience-card h3{margin-top:35px}.method{padding:29px 24px}.method-num{margin-bottom:28px}.service{grid-template-columns:1fr;padding:23px}.claim-quote{padding:31px}.claim-quote blockquote{font-size:25px}.team-note{padding:29px}.contact{padding:70px 0}.contact-card{padding:24px}.footer-links{display:grid;gap:10px}.footer-bottom{display:grid;gap:8px}.survey-overlay{padding:0;align-items:stretch}.survey-panel{border-radius:0;max-height:none;height:100%}.survey-body{padding:31px 22px}.question-title{font-size:28px}.choices{grid-template-columns:1fr}.survey-foot{padding:14px 18px}.survey-title span{display:none}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Del Campo Broker de Seguros. Consultoría integral en gestión de riesgos para empresas y familias.">
+<meta name="theme-color" content="#174862">
+<link rel="icon" type="image/png" href="${BRAND_ISOTIPO}">
+<title>Del Campo Broker de Seguros | Gestión de riesgos</title>
+<style>
+:root{--indigo:#174862;--deep:#0d3448;--moon:#55a5ba;--pale:#a0d0dc;--slate:#344a53;--ink:#18303a;--muted:#64777e;--line:#d9e5e9;--mist:#f2f8f9;--paper:#fff;--warm:#fbfaf7;--shadow:0 24px 70px rgba(23,72,98,.13);--radius:24px;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}img{max-width:100%;display:block}a{color:inherit}button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid rgba(85,165,186,.45);outline-offset:4px}.shell{width:min(var(--max),calc(100% - 48px));margin:auto}.skip{position:absolute;left:-9999px}.skip:focus{left:18px;top:18px;z-index:100;background:white;padding:12px 16px;border-radius:8px}
+.nav-wrap{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(23,72,98,.09)}.nav{height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:282px}.brand-mark{width:60px;height:60px;overflow:hidden;flex:0 0 60px}.brand-mark img{height:100%;width:auto;max-width:none}.brand-copy{display:grid;color:var(--indigo);line-height:1}.brand-copy strong{font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}.brand-copy span{font-size:9px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;margin-top:7px;white-space:nowrap}.brand-copy small{font-size:7.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;white-space:nowrap}.nav-links{display:flex;align-items:center;gap:20px}.nav-links a{text-decoration:none;font-size:13px;font-weight:650;color:var(--slate)}.nav-links a:hover{color:var(--moon)}.menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:white;border-radius:50%;color:var(--indigo);font-size:20px}
+.button{min-height:48px;border-radius:999px;padding:12px 20px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:750;font-size:14px;cursor:pointer;transition:.2s}.button:hover{transform:translateY(-2px)}.button.primary{background:var(--indigo);color:white;box-shadow:0 13px 30px rgba(23,72,98,.18)}.button.primary:hover{background:var(--deep)}.button.secondary{background:white;border-color:rgba(23,72,98,.22);color:var(--indigo)}.button.small{min-height:40px;padding:9px 16px;font-size:12px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(130deg,#f8fbfb 0%,#eef7f8 56%,#dceff3 100%)}.hero:after{content:"";position:absolute;width:660px;height:660px;border:1px solid rgba(85,165,186,.18);border-radius:50%;right:-280px;top:-300px;box-shadow:0 0 0 85px rgba(160,208,220,.13),0 0 0 170px rgba(160,208,220,.08)}.hero-grid{min-height:650px;padding:78px 0 84px;display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:center;position:relative;z-index:1}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--moon);font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:850}.eyebrow:before{content:"";width:34px;height:2px;background:var(--moon)}h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}h1{font-size:clamp(48px,6.1vw,76px);line-height:1.02;letter-spacing:-.04em;color:var(--indigo);margin:22px 0 25px}h1 em{font-style:normal;color:var(--moon)}.hero-lead{font-size:18px;line-height:1.67;color:var(--slate);max-width:670px;margin:0 0 31px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{position:relative;min-height:480px;display:grid;place-items:center}.logo-card{width:min(430px,94%);background:rgba(255,255,255,.82);border:1px solid rgba(23,72,98,.13);border-radius:32px;padding:38px 34px 42px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}.hero-brand{display:grid;justify-items:center;text-align:center;color:var(--indigo)}.hero-brand .brand-mark{width:180px;height:180px}.hero-brand .brand-copy{justify-items:center;margin-top:20px}.hero-brand .brand-copy strong{font-size:40px;letter-spacing:.09em}.hero-brand .brand-copy span{font-size:15px;letter-spacing:.31em;margin-top:10px}.hero-brand .brand-copy small{font-size:11px;letter-spacing:.16em;margin-top:10px}.float-card{position:absolute;background:white;border:1px solid var(--line);border-radius:15px;padding:13px 17px;box-shadow:0 14px 36px rgba(23,72,98,.12)}.float-card strong{display:block;color:var(--indigo);font-size:14px}.float-card span{font-size:11px;color:var(--muted)}.float-one{left:0;top:62px}
+.trust{border-block:1px solid var(--line);background:white}.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}.trust-item{padding:28px 24px;border-right:1px solid var(--line)}.trust-item:first-child{padding-left:0}.trust-item:last-child{border-right:0}.trust-item strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:500;color:var(--indigo);margin-bottom:5px}.trust-item span{font-size:12px;color:var(--muted)}
+.section{padding:104px 0}.section.soft{background:var(--mist)}.section.warm{background:var(--warm)}.section.dark{background:var(--indigo);color:white;position:relative;overflow:hidden}.section.dark:after{content:"";position:absolute;width:540px;height:540px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-230px;top:-260px;box-shadow:0 0 0 80px rgba(255,255,255,.025)}.section-head{max-width:780px;margin-bottom:52px}.section-head.center{text-align:center;margin-left:auto;margin-right:auto}.section-head.center .eyebrow{justify-content:center}h2{font-size:clamp(38px,4.5vw,56px);line-height:1.07;letter-spacing:-.035em;margin:18px 0;color:var(--indigo)}.dark h2{color:white}.section-head p,.split-copy>p{font-size:17px;color:var(--muted);margin:0}.dark .section-head p{color:rgba(255,255,255,.7)}
+.about-grid{display:block}.about-copy{max-width:780px;margin-bottom:48px}.about-copy p{font-size:17px;color:var(--slate)}.pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.pillar{border:1px solid var(--line);border-radius:18px;padding:22px 19px;background:white;min-height:230px}.pillar:last-child{grid-column:auto}.pillar b{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--mist);color:var(--moon);font-family:Georgia,"Times New Roman",serif;font-weight:500;margin-bottom:20px}.pillar strong{display:block;color:var(--indigo);margin-bottom:7px}.pillar span{font-size:13px;color:var(--muted)}
+.team-section{background:linear-gradient(145deg,#edf7f8,#fff)}.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.team-card{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 14px 38px rgba(23,72,98,.07)}.team-media{aspect-ratio:4/5;background:var(--mist);overflow:hidden}.team-media img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}.team-card:hover .team-media img{transform:scale(1.025)}.team-copy{padding:20px 20px 23px}.team-copy h3{font-family:Georgia,"Times New Roman",serif;font-size:24px;font-weight:500;color:var(--indigo);margin:0 0 7px}.team-copy p{font-size:13px;color:var(--muted);margin:0}
+.coverage-intro{display:grid;grid-template-columns:.75fr 1.25fr;gap:64px;align-items:end;margin-bottom:48px}.coverage-intro .section-head{margin:0}.coverage-guide{border-left:2px solid var(--pale);padding:4px 0 4px 24px;color:var(--muted);font-size:15px}.coverage-guide strong{display:block;color:var(--indigo);font-size:13px;text-transform:uppercase;letter-spacing:.11em;margin-bottom:7px}.solutions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.solution{border:1px solid var(--line);border-radius:18px;background:white;overflow:hidden;transition:.2s}.solution:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(23,72,98,.09)}.solution-media{height:150px;position:relative;overflow:hidden;background:var(--indigo)}.solution-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.04);transition:transform .35s ease}.solution:hover .solution-media img{transform:scale(1.04)}.solution-copy{padding:24px 22px 27px}.solution h3{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:500;color:var(--indigo);margin:0 0 9px}.solution p{font-size:13px;color:var(--muted);margin:0}.personal-section{background:linear-gradient(145deg,#e8f4f7,#f8fbfc)}.personal-section .solution{box-shadow:0 12px 35px rgba(23,72,98,.06)}
+.sector-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.sector{background:rgba(255,255,255,.07);border-radius:16px;overflow:hidden;min-height:310px}.sector-media{height:132px;overflow:hidden}.sector-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.04);transition:transform .35s ease}.sector:hover .sector-media img{transform:scale(1.04)}.sector h3{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:500;margin:20px 19px 8px}.sector p{font-size:12px;color:rgba(255,255,255,.67);margin:0 19px 22px}
+.contact{padding:92px 0;background:linear-gradient(130deg,#d9edf1,#f5fafb)}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}.contact h2{margin-top:16px}.contact-card{background:white;border:1px solid rgba(23,72,98,.13);box-shadow:var(--shadow);border-radius:var(--radius);padding:32px}.contact-card>strong{display:block;font-family:Georgia,"Times New Roman",serif;color:var(--indigo);font-size:24px;font-weight:500;margin-bottom:18px}.contact-links{display:grid;gap:10px;margin-bottom:22px}.contact-link{display:flex;align-items:center;gap:10px;color:var(--slate);font-size:14px;text-decoration:none}.contact-link:hover{color:var(--moon)}.contact-link i{font-style:normal;color:var(--moon);font-weight:900}.contact-actions{display:flex;gap:10px;flex-wrap:wrap}.whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;padding:15px;background:#25d366;display:grid;place-items:center;text-decoration:none;box-shadow:0 14px 32px rgba(13,52,72,.28);transition:.2s}.whatsapp-float img{width:100%;height:100%;object-fit:contain}.whatsapp-float:hover{background:#20bd5a;transform:translateY(-2px)}
+.footer{background:var(--deep);color:white;padding:48px 0 28px}.footer-top{display:flex;justify-content:space-between;gap:50px;align-items:flex-start}.footer .brand-copy{color:white}.footer .brand-mark img{filter:brightness(0) invert(1)}.footer-links{display:flex;gap:22px;flex-wrap:wrap}.footer-links a{font-size:12px;text-decoration:none;color:rgba(255,255,255,.68)}.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.48);font-size:11px}
+@media(max-width:1000px){.nav-links a:not(.button){display:none}.hero-grid,.contact-grid,.coverage-intro{grid-template-columns:1fr}.coverage-intro{gap:24px}.hero-visual{min-height:460px;max-width:660px}.trust-grid{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.pillars,.solutions,.sector-grid,.team-grid{grid-template-columns:1fr 1fr}.pillar:last-child,.sector:last-child{grid-column:1/-1}.section{padding:82px 0}}
+@media(max-width:720px){.shell{width:min(100% - 36px,var(--max))}.nav{height:76px}.brand{min-width:0;gap:8px}.brand-mark{width:46px;height:46px;flex-basis:46px}.brand-copy strong{font-size:17px}.brand-copy span{font-size:7px;letter-spacing:.22em;margin-top:5px}.brand-copy small{font-size:6px;letter-spacing:.07em;margin-top:4px}.nav-links{display:none;position:absolute;left:18px;right:18px;top:74px;background:white;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);align-items:stretch}.nav-links.open{display:grid}.nav-links a{padding:10px}.menu-toggle{display:block}.hero-grid{min-height:auto;padding:67px 0}.hero-lead{font-size:16px}.hero-actions{display:grid}.hero-actions .button{width:100%}.hero-visual{min-height:410px}.logo-card{width:92%;padding:34px 22px 38px}.hero-brand .brand-mark{width:150px;height:150px}.hero-brand .brand-copy strong{font-size:31px}.hero-brand .brand-copy span{font-size:12px}.hero-brand .brand-copy small{font-size:9px}.float-card{padding:10px 13px}.float-one{left:0;top:48px}.trust-grid,.pillars,.solutions,.sector-grid,.team-grid{grid-template-columns:1fr}.trust-item{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}.pillar:last-child,.sector:last-child{grid-column:auto}.footer-top,.footer-bottom{display:grid}.footer-links{display:grid}.section{padding:68px 0}.section-head{margin-bottom:38px}.contact{padding:70px 0}.contact-actions{display:grid}.contact-actions .button{width:100%}.whatsapp-float{right:16px;bottom:16px;width:54px;height:54px;padding:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.solution{transition:none}}
+</style>
 </head>
 <body>
-  <div class="prototype-bar"><span class="prototype-dot"></span>Prototipo para discusión interna · Los textos, prioridades y llamados a la acción están abiertos a decisión</div>
-  <header class="shell nav" aria-label="Navegación principal">
-    <a class="brand" href="#inicio" aria-label="Inicio">
-      <img class="brand-logo" src="${logoData}" alt="Del Campo Broker de Seguros" />
-    </a>
-    <nav class="nav-links">
-      <a href="#propuesta">Cómo trabajamos</a><a href="#soluciones">Soluciones</a><a href="#equipo">Nosotros</a>
-      <button class="button secondary small" data-open-survey>Opinar sobre la web</button>
-    </nav>
-  </header>
-  <main>
-    <section class="hero" id="inicio">
-      <div class="shell hero-grid">
-        <div>
-          <div class="eyebrow">Asesoramiento en riesgos y seguros</div>
-          <h1>No se trata solo de tener una póliza. Se trata de estar <em>bien protegido.</em></h1>
-          <p class="hero-lead">Analizamos tus riesgos, traducimos la letra chica y comparamos coberturas para que puedas decidir con claridad. Si ocurre un siniestro, seguimos a tu lado.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#contacto">Revisar mis coberturas <span class="arrow">→</span></a>
-            <a class="button secondary" href="#propuesta">Conocer cómo trabajamos</a>
-          </div>
-          <div class="hero-foot">
-            <span><i class="check">✓</i> Coberturas a medida</span>
-            <span><i class="check">✓</i> Compañías de primera línea</span>
-            <span><i class="check">✓</i> Acompañamiento en siniestros</span>
-          </div>
-        </div>
-        <aside class="clarity-card" aria-label="Ejemplo de revisión de cobertura">
-          <div class="card-kicker">Una mirada clara de tu protección</div>
-          <div class="card-title">Mapa inicial de riesgos</div>
-          <div class="risk-row"><div class="risk-icon">01</div><div class="risk-copy"><strong>Patrimonio y operación</strong><span>Bienes, continuidad y responsabilidad</span></div><span class="risk-state">Revisado</span></div>
-          <div class="risk-row"><div class="risk-icon">02</div><div class="risk-copy"><strong>Personas clave</strong><span>Equipo, terceros y entorno</span></div><span class="risk-state warn">A validar</span></div>
-          <div class="risk-row"><div class="risk-icon">03</div><div class="risk-copy"><strong>Procedimientos críticos</strong><span>Prevención y respuesta ante incidentes</span></div><span class="risk-state">Revisado</span></div>
-          <div class="card-note"><div><span>Próximo paso sugerido</span><strong>Revisar prioridades</strong></div><span class="arrow">→</span></div>
-        </aside>
-      </div>
-    </section>
-    <section class="trust-strip">
-      <div class="shell trust-grid">
-        <div class="trust-item"><span class="trust-number">01</span><div><strong>Criterio antes que precio</strong><span>Una diferencia pequeña puede cambiar mucho la cobertura.</span></div></div>
-        <div class="trust-item"><span class="trust-number">02</span><div><strong>Claridad para decidir</strong><span>Comparamos, traducimos y explicamos lo importante.</span></div></div>
-        <div class="trust-item"><span class="trust-number">03</span><div><strong>Humanos cuando importa</strong><span>Estamos presentes antes, durante y después del siniestro.</span></div></div>
-      </div>
-    </section>
-    <section class="section" id="propuesta">
-      <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Una propuesta para cada realidad</div>
-          <h2>El seguro empieza por entender qué necesitás proteger.</h2>
-          <p>No ofrecemos una póliza estándar: partimos de tus riesgos reales, tus prioridades y el contexto en el que tomás decisiones.</p>
-        </div>
-        <div class="audience-grid">
-          <article class="audience-card business">
-            <div><span class="card-index">01 / Empresas</span><h3>Continuidad para lo que construiste.</h3><p>Industria, bodegas, minería y PyMEs: analizamos operaciones, activos, personas y responsabilidades para diseñar una cobertura que acompañe el negocio.</p></div>
-            <a class="link-arrow" href="#contacto">Revisar riesgos de mi empresa <span>→</span></a>
-          </article>
-          <article class="audience-card">
-            <div><span class="card-index">02 / Personas</span><h3>Tranquilidad para tu vida cotidiana.</h3><p>Auto, hogar y protección personal con una explicación clara de qué contratás, qué queda cubierto y qué conviene revisar.</p></div>
-            <a class="link-arrow" href="#contacto">Revisar mis seguros <span>→</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft" aria-labelledby="metodo-title">
-      <div class="shell">
-        <div class="section-head center">
-          <div class="eyebrow">Cómo trabajamos</div>
-          <h2 id="metodo-title">De la incertidumbre a una decisión clara.</h2>
-          <p>Un proceso simple para transformar riesgos complejos en coberturas comprensibles y accionables.</p>
-        </div>
-        <div class="method-grid">
-          <article class="method"><span class="method-num">01</span><h3>Entendemos el riesgo</h3><p>Escuchamos, relevamos y priorizamos. La cobertura correcta comienza por una buena pregunta, no por una lista de productos.</p></article>
-          <article class="method"><span class="method-num">02</span><h3>Comparamos con criterio</h3><p>Analizamos alternativas de compañías de primera línea, condiciones, límites, exclusiones y requisitos relevantes.</p></article>
-          <article class="method"><span class="method-num">03</span><h3>Acompañamos de verdad</h3><p>Gestionamos documentación, renovaciones y siniestros. Nuestro trabajo no termina cuando se emite la póliza.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="soluciones">
-      <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Valor en cada etapa</div>
-          <h2>Más que intermediar: cuidar la calidad de tu protección.</h2>
-          <p>Combinamos análisis técnico, gestión administrativa y cercanía para que el seguro funcione cuando realmente lo necesitás.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service"><div class="service-icon">R</div><div><h3>Relevamiento y matriz de riesgos</h3><p>Identificamos exposiciones, prioridades y acciones de prevención para construir una visión integral.</p></div></article>
-          <article class="service"><div class="service-icon">C</div><div><h3>Cotización comparativa</h3><p>Ordenamos alternativas y mostramos las diferencias que importan más allá del precio final.</p></div></article>
-          <article class="service"><div class="service-icon">P</div><div><h3>Diseño y revisión de pólizas</h3><p>Ajustamos sumas, cláusulas y condiciones; traducimos la letra chica a decisiones comprensibles.</p></div></article>
-          <article class="service"><div class="service-icon">S</div><div><h3>Gestión de siniestros</h3><p>Te orientamos con los pasos, la documentación y el seguimiento frente a la aseguradora.</p></div></article>
-          <article class="service"><div class="service-icon">A</div><div><h3>Administración y renovaciones</h3><p>Controlamos vencimientos, certificados, pagos y cambios para reducir errores y tareas dispersas.</p></div></article>
-          <article class="service"><div class="service-icon">M</div><div><h3>Monitoreo periódico</h3><p>Revisamos coberturas cuando cambian los activos, los riesgos o las necesidades del cliente.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark">
-      <div class="shell split">
-        <div class="split-copy">
-          <div class="eyebrow" style="color:#a9d6e5">Tecnología con propósito</div>
-          <h2>Más agilidad. El mismo criterio humano.</h2>
-          <p>Usamos tecnología para automatizar tareas repetitivas, comparar mejor y anticiparnos. Las decisiones complejas, la empatía y el acompañamiento siguen en manos de personas.</p>
-        </div>
-        <div class="principles">
-          <div class="principle"><b>01</b><div><strong>Procesos más simples</strong><span>Menos carga manual, menos errores y respuestas más rápidas.</span></div></div>
-          <div class="principle"><b>02</b><div><strong>Información más clara</strong><span>Visualizaciones que ayudan a comprender y comparar pólizas.</span></div></div>
-          <div class="principle"><b>03</b><div><strong>Personas donde aportan más</strong><span>Criterio, negociación, confianza y navegación de la incertidumbre.</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell claim-panel">
-        <div class="claim-quote">
-          <div class="quote-mark">“</div>
-          <blockquote>El verdadero valor de un seguro se entiende cuando algo sale mal.</blockquote>
-          <footer>Una promesa de acompañamiento, no solo de contratación.</footer>
-        </div>
-        <div class="split-copy">
-          <div class="eyebrow">Cuando ocurre un siniestro</div>
-          <h2>No te dejamos solo frente a la letra chica.</h2>
-          <p>Te ayudamos a entender el procedimiento, reunir la información correcta y sostener el seguimiento hasta la resolución.</p>
-          <div class="check-list">
-            <div class="check-line"><i>✓</i><div><strong>Orientación inmediata</strong><span>Qué hacer primero y qué evitar para no comprometer la cobertura.</span></div></div>
-            <div class="check-line"><i>✓</i><div><strong>Gestión y seguimiento</strong><span>Coordinación con cliente, aseguradora y actores involucrados.</span></div></div>
-            <div class="check-line"><i>✓</i><div><strong>Aprendizaje preventivo</strong><span>Revisamos lo ocurrido para mejorar procedimientos y coberturas futuras.</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft" id="equipo">
-      <div class="shell">
-        <div class="team-note">
-          <div>
-            <div class="eyebrow">Un equipo, varias miradas</div>
-            <h3>Experiencia aseguradora, análisis de riesgos y capacidad tecnológica.</h3>
-            <p>La propuesta combina conocimiento técnico del negocio, trato cercano y una nueva capacidad para rediseñar procesos con software e inteligencia artificial.</p>
-            <div class="role-pills"><span>Riesgos</span><span>Ventas y posventa</span><span>Administración</span><span>Procesos</span><span>Tecnología</span><span>Finanzas</span></div>
-          </div>
-          <button class="button secondary" data-open-survey>¿Esto representa al equipo? <span>→</span></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contacto">
-      <div class="shell contact-grid">
-        <div class="contact-copy">
-          <div class="eyebrow">Primer paso</div>
-          <h2>Conversemos sobre lo que necesitás proteger.</h2>
-          <p>Una primera revisión puede mostrar coberturas insuficientes, duplicadas o desalineadas con tus riesgos actuales.</p>
-          <div class="contact-points"><span>✓ Sin compromiso de contratación</span><span>✓ Atención personalizada</span><span>✓ Broker sin costo adicional para el cliente</span></div>
-        </div>
-        <form class="contact-card" id="contactForm">
-          <div class="field"><label for="name">Nombre</label><input id="name" name="name" placeholder="Tu nombre" required /></div>
-          <div class="field"><label for="profile">¿Qué querés revisar?</label><select id="profile" name="profile"><option>Seguros de mi empresa</option><option>Auto, hogar o seguros personales</option><option>Un siniestro en curso</option><option>Todavía no estoy seguro</option></select></div>
-          <div class="field"><label for="message">Contanos brevemente</label><textarea id="message" name="message" placeholder="¿Qué situación te gustaría revisar?"></textarea></div>
-          <button class="button primary" type="submit">Solicitar una conversación <span>→</span></button>
-          <p class="form-note">Formulario demostrativo. El canal definitivo se decidirá con el equipo.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="shell">
-      <div class="footer-grid">
-        <a class="brand" href="#inicio"><img class="brand-logo" src="${logoData}" alt="Del Campo Broker de Seguros" /></a>
-        <nav class="footer-links"><a href="#propuesta">Cómo trabajamos</a><a href="#soluciones">Soluciones</a><a href="#equipo">Nosotros</a><button class="button secondary small" data-open-survey>Responder encuesta</button></nav>
-      </div>
-      <div class="footer-bottom"><span>Prototipo conceptual · Agosto 2026</span><span>Los datos de contacto, identidad legal y compañías se incorporarán tras la validación.</span></div>
-    </div>
-  </footer>
-  <button class="button survey-fab" data-open-survey>Ayudanos a decidir esta web <span class="arrow">↗</span></button>
-
-  <div class="survey-overlay" id="surveyOverlay" role="dialog" aria-modal="true" aria-labelledby="surveyQuestion">
-    <section class="survey-panel">
-      <div>
-        <div class="survey-head">
-          <div class="survey-title"><img class="brand-mark" src="${faviconData}" alt="" aria-hidden="true" /><div><strong>Encuesta de decisiones web</strong><span>8 decisiones · 5 minutos</span></div></div>
-          <button class="close" id="closeSurvey" aria-label="Cerrar encuesta">×</button>
-        </div>
-        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      </div>
-      <div class="survey-body" id="surveyBody"></div>
-      <div class="survey-foot" id="surveyFoot">
-        <button class="button secondary small" id="prevQuestion">← Anterior</button>
-        <span class="survey-count" id="surveyCount"></span>
-        <button class="button primary small" id="nextQuestion">Siguiente →</button>
-      </div>
-    </section>
-  </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script>
-    const questions = [
-      {
-        title:'¿Qué promesa debería ocupar el centro de la página?',
-        help:'Elegí la idea que mejor representa el valor diferencial del negocio.',
-        type:'single',
-        options:['Estar bien protegido, no solo tener una póliza','Un asesor de confianza cuando más lo necesitás','Coberturas claras, comparadas con criterio','Prevención y gestión integral de riesgos']
-      },
-      {
-        title:'¿A quién debería hablarle primero esta landing?',
-        help:'La página puede atender a todos, pero el primer mensaje necesita una prioridad.',
-        type:'single',
-        options:['Empresas e industrias','Bodegas y actividad vitivinícola','Personas: auto y hogar','Equilibrio empresas + personas']
-      },
-      {
-        title:'¿Cuál debería ser la acción principal del visitante?',
-        help:'Esta decisión organiza todo el recorrido y define qué mediremos.',
-        type:'single',
-        options:['Solicitar revisión de coberturas','Pedir una cotización','Hablar con un asesor','Explorar productos y servicios']
-      },
-      {
-        title:'¿Qué tono debería dominar la comunicación?',
-        help:'Pensá en cómo queremos que se sienta el cliente al recorrer la página.',
-        type:'single',
-        options:['Cercano y humano','Técnico y profesional','Sobrio y ejecutivo','Didáctico y transparente']
-      },
-      {
-        title:'¿Qué tres servicios merecen mayor protagonismo?',
-        help:'Podés elegir hasta tres. El resto seguirá presente, pero con menor jerarquía.',
-        type:'multi', max:3,
-        options:['Análisis y matriz de riesgos','Cotización comparativa','Revisión de pólizas','Gestión de siniestros','Administración y renovaciones','Prevención y monitoreo']
-      },
-      {
-        title:'¿Qué lugar debería ocupar la tecnología?',
-        help:'El prototipo la presenta como habilitador, sin desplazar el vínculo humano.',
-        type:'single',
-        options:['Casi invisible: que se note en la agilidad','Una sección breve como en este prototipo','Un diferencial central de la propuesta','Todavía no mencionarla públicamente']
-      },
-      {
-        title:'¿Qué evidencia generaría más confianza?',
-        help:'Elegí la prueba que debería incorporarse primero en una próxima versión.',
-        type:'single',
-        options:['Años de experiencia y trayectoria','Casos reales y testimonios','Compañías con las que trabajamos','Presentación del equipo','Indicadores de servicio y respuesta']
-      },
-      {
-        title:'¿Qué falta, sobra o te genera tensión en esta propuesta?',
-        help:'Señalá mensajes que no representen al negocio, riesgos, ideas o cambios concretos.',
-        type:'text', placeholder:'Ejemplo: priorizaría empresas, bajaría el protagonismo de tecnología y explicaría mejor el acompañamiento en siniestros…'
-      }
-    ];
-
-    const overlay = document.getElementById('surveyOverlay');
-    const body = document.getElementById('surveyBody');
-    const foot = document.getElementById('surveyFoot');
-    const progress = document.getElementById('progressFill');
-    const storageKey = 'landing-seguros-decision-survey-v1';
-    let step = 0;
-    let answers = {};
-    try { answers = JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch (error) { answers = {}; }
-
-    function escapeHtml(value) {
-      return String(value || '').replace(/[&<>"']/g, function(char) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]; });
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.classList.add('show');
-      window.clearTimeout(showToast.timer);
-      showToast.timer = window.setTimeout(function(){ toast.classList.remove('show'); }, 2400);
-    }
-
-    function saveAnswers() {
-      try { localStorage.setItem(storageKey, JSON.stringify(answers)); } catch (error) {}
-    }
-
-    function hasAnswer(index) {
-      const value = answers[index];
-      if (Array.isArray(value)) return value.length > 0;
-      return typeof value === 'string' && value.trim().length > 0;
-    }
-
-    function openSurvey() {
-      overlay.classList.add('open');
-      document.body.classList.add('modal-open');
-      step = 0;
-      renderQuestion();
-      document.getElementById('closeSurvey').focus();
-    }
-
-    function closeSurvey() {
-      overlay.classList.remove('open');
-      document.body.classList.remove('modal-open');
-    }
-
-    function renderQuestion() {
-      const question = questions[step];
-      progress.style.width = (((step + 1) / questions.length) * 100) + '%';
-      let control = '';
-      if (question.type === 'text') {
-        control = '<textarea class="survey-text" id="openAnswer" placeholder="' + escapeHtml(question.placeholder) + '">' + escapeHtml(answers[step] || '') + '</textarea>';
-      } else {
-        const selected = question.type === 'multi' ? (answers[step] || []) : [answers[step]];
-        control = '<div class="choices">' + question.options.map(function(option){
-          const isSelected = selected.indexOf(option) >= 0;
-          return '<button class="choice' + (isSelected ? ' selected' : '') + '" data-option="' + escapeHtml(option) + '"><span class="choice-mark">' + (isSelected ? '✓' : '') + '</span><span>' + escapeHtml(option) + '</span></button>';
-        }).join('') + '</div>';
-      }
-      body.innerHTML = '<div class="step-label">Decisión ' + (step + 1) + ' de ' + questions.length + '</div><h2 class="question-title" id="surveyQuestion">' + question.title + '</h2><p class="question-help">' + question.help + '</p>' + control;
-      foot.innerHTML = '<button class="button secondary small" id="prevQuestion">← Anterior</button><span class="survey-count">Tus respuestas quedan guardadas en este dispositivo</span><button class="button primary small" id="nextQuestion">' + (step === questions.length - 1 ? 'Ver síntesis →' : 'Siguiente →') + '</button>';
-      document.getElementById('prevQuestion').style.visibility = step === 0 ? 'hidden' : 'visible';
-      document.getElementById('prevQuestion').addEventListener('click', function(){ step -= 1; renderQuestion(); });
-      document.getElementById('nextQuestion').addEventListener('click', nextQuestion);
-      body.querySelectorAll('[data-option]').forEach(function(button){ button.addEventListener('click', function(){ chooseOption(button.dataset.option); }); });
-      const textarea = document.getElementById('openAnswer');
-      if (textarea) textarea.addEventListener('input', function(event){ answers[step] = event.target.value; saveAnswers(); });
-    }
-
-    function chooseOption(option) {
-      const question = questions[step];
-      if (question.type === 'multi') {
-        const selected = Array.isArray(answers[step]) ? answers[step].slice() : [];
-        const index = selected.indexOf(option);
-        if (index >= 0) selected.splice(index, 1);
-        else if (selected.length < question.max) selected.push(option);
-        else { showToast('Podés elegir hasta ' + question.max + ' opciones.'); return; }
-        answers[step] = selected;
-      } else {
-        answers[step] = option;
-      }
-      saveAnswers();
-      renderQuestion();
-    }
-
-    function nextQuestion() {
-      if (!hasAnswer(step)) { showToast(step === questions.length - 1 ? 'Escribí una observación para completar la encuesta.' : 'Elegí una opción para continuar.'); return; }
-      if (step < questions.length - 1) { step += 1; renderQuestion(); }
-      else renderSummary();
-    }
-
-    function summaryText() {
-      const lines = ['ENCUESTA DE DECISIONES WEB', ''];
-      questions.forEach(function(question, index){
-        const value = Array.isArray(answers[index]) ? answers[index].join(', ') : answers[index];
-        lines.push((index + 1) + '. ' + question.title);
-        lines.push('Respuesta: ' + (value || 'Sin respuesta'));
-        lines.push('');
-      });
-      return lines.join('\n');
-    }
-
-    function renderSummary() {
-      progress.style.width = '100%';
-      const items = questions.map(function(question,index){
-        const value = Array.isArray(answers[index]) ? answers[index].join(' · ') : answers[index];
-        return '<div class="summary-item"><strong>' + (index + 1) + '. ' + escapeHtml(question.title) + '</strong><span>' + escapeHtml(value || 'Sin respuesta') + '</span></div>';
-      }).join('');
-      body.innerHTML = '<div class="success-icon">✓</div><div class="step-label">Síntesis preparada</div><h2 class="question-title" id="surveyQuestion">Tu mirada ya está lista para la discusión.</h2><p class="question-help">Copiá la respuesta y compartila con el equipo. En esta versión del prototipo los resultados no se centralizan automáticamente.</p><div class="summary-list">' + items + '</div>';
-      foot.innerHTML = '<button class="button secondary small" id="reviewAnswers">← Revisar</button><span class="survey-count">La respuesta también queda guardada localmente</span><button class="button primary small" id="copyAnswers">Copiar respuesta</button>';
-      document.getElementById('reviewAnswers').addEventListener('click', function(){ step = questions.length - 1; renderQuestion(); });
-      document.getElementById('copyAnswers').addEventListener('click', copyAnswers);
-    }
-
-    function copyAnswers() {
-      const text = summaryText();
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(function(){ showToast('Respuesta copiada.'); });
-      } else {
-        const area = document.createElement('textarea');
-        area.value = text; document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove(); showToast('Respuesta copiada.');
-      }
-    }
-
-    document.querySelectorAll('[data-open-survey]').forEach(function(button){ button.addEventListener('click', openSurvey); });
-    document.getElementById('closeSurvey').addEventListener('click', closeSurvey);
-    overlay.addEventListener('click', function(event){ if (event.target === overlay) closeSurvey(); });
-    document.addEventListener('keydown', function(event){ if (event.key === 'Escape' && overlay.classList.contains('open')) closeSurvey(); });
-    document.getElementById('contactForm').addEventListener('submit', function(event){ event.preventDefault(); showToast('Interacción simulada: falta definir el canal de contacto.'); });
-  </script>
-</body>
-</html>`;
-}
-
-function decodeDataUrl(dataUrl) {
-  const encoded = dataUrl.slice(dataUrl.indexOf(",") + 1);
-  const binary = atob(encoded);
-  const bytes = new Uint8Array(binary.length);
-  for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
-  return bytes;
-}
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="nav-wrap"><div class="shell nav">
+<a class="brand" href="#inicio" aria-label="Del Campo Gestión de Riesgos, inicio"><span class="brand-mark"><img src="${BRAND_HORIZONTAL}" alt=""></span><span class="brand-copy"><strong>Del Campo</strong><span>Gestión de Riesgos</span><small>Productores Asesores de Seguros</small></span></a>
+<nav class="nav-links" id="navLinks" aria-label="Navegación principal"><a href="#nosotros">Quiénes somos</a><a href="#coberturas">Coberturas</a><a href="#empresas">Empresas</a><a href="#personas">Personas</a><a href="#contacto">Contacto</a><a class="button primary small" href="#contacto">Conversemos sobre tus riesgos</a></nav>
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+</div></header>
+<main id="contenido">
+<section class="hero" id="inicio"><div class="shell hero-grid">
+<div><div class="eyebrow">Bróker de seguros · Gestión de riesgos</div><h1>Cuidar lo que construís también es pensar <em>en lo que viene.</em></h1><p class="hero-lead">Hace más de 30 años que acompañamos a empresas y familias. Analizamos tus riesgos y encontramos la mejor manera de gestionarlos.</p><div class="hero-actions"><a class="button primary" href="#contacto">Conversemos <span>→</span></a><a class="button secondary" href="https://wa.me/5492612443475?text=Hola%2C%20quisiera%20conversar%20con%20un%20asesor%20sobre%20mis%20riesgos%20y%20coberturas." target="_blank" rel="noopener">Escribir por WhatsApp</a></div></div>
+<div class="hero-visual" aria-label="Identidad de Del Campo Gestión de Riesgos"><div class="logo-card"><div class="hero-brand"><span class="brand-mark"><img src="${BRAND_HORIZONTAL}" alt=""></span><span class="brand-copy"><strong>Del Campo</strong><span>Gestión de Riesgos</span><small>Productores Asesores de Seguros</small></span></div></div><div class="float-card float-one"><strong>+30 años</strong><span>de experiencia aseguradora</span></div></div>
+</div></section>
+<section class="trust" aria-label="Principios de servicio"><div class="shell trust-grid"><div class="trust-item"><strong>Experiencia</strong><span>Tres décadas protegiendo empresas y familias.</span></div><div class="trust-item"><strong>Independencia</strong><span>Múltiples aseguradoras, una recomendación con criterio.</span></div><div class="trust-item"><strong>Acompañamiento</strong><span>Presentes desde el análisis hasta el siniestro.</span></div><div class="trust-item"><strong>Revisión continua</strong><span>Las coberturas evolucionan junto con cada cliente.</span></div></div></section>
+<section class="section team-section" id="nosotros"><div class="shell"><div class="section-head"><div class="eyebrow">Quiénes somos</div><h2>Un equipo detrás de cada proceso.</h2><p>Cada etapa de la gestión tiene una persona responsable. Trabajamos de forma coordinada para entender los riesgos, encontrar alternativas y acompañarte de principio a fin.</p></div><div class="team-grid"><article class="team-card"><div class="team-media"><img src="${TEAM_MANUEL}" alt="Manuel" loading="lazy"></div><div class="team-copy"><h3>Manuel</h3><p>Orquesta los procesos y las ventas, con amplia experiencia en la industria aseguradora.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_VICTORIA}" alt="Victoria" loading="lazy"></div><div class="team-copy"><h3>Victoria</h3><p>Coordina los procesos de cotización y renovaciones.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_JIMENA}" alt="Jimena" loading="lazy"></div><div class="team-copy"><h3>Jimena</h3><p>Gestiona vencimientos, pagos y facturación.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_LUCIA}" alt="Lucía" loading="lazy"></div><div class="team-copy"><h3>Lucía</h3><p>Lidera el proceso de cauciones.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_PILAR}" alt="Pilar" loading="lazy"></div><div class="team-copy"><h3>Pilar</h3><p>Acompaña la gestión integral de siniestros.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_MATIAS}" alt="Matías" loading="lazy"></div><div class="team-copy"><h3>Matías</h3><p>Impulsa ventas y marketing.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_EVANGELINA}" alt="Evangelina" loading="lazy"></div><div class="team-copy"><h3>Evangelina</h3><p>Analiza riesgos y acompaña el diseño de coberturas.</p></div></article><article class="team-card"><div class="team-media"><img src="${TEAM_EMILIANO}" alt="Emiliano" loading="lazy"></div><div class="team-copy"><h3>Emiliano</h3><p>Desarrolla y sostiene los sistemas que respaldan la operación.</p></div></article></div></div></section>
+<section class="section" id="como-trabajamos"><div class="shell about-grid">
+<div class="about-copy"><div class="eyebrow">Cómo trabajamos</div><h2>Una mirada integral sobre cada riesgo.</h2><p>Trabajamos cerca de vos para entender tu realidad, identificar tus exposiciones y acompañarte en cada etapa.</p></div>
+<div class="pillars"><article class="pillar"><b>01</b><strong>Entendemos</strong><span>Conocemos la actividad, los activos, las personas y las prioridades.</span></article><article class="pillar"><b>02</b><strong>Identificamos</strong><span>Relevamos riesgos, controles existentes y posibles brechas.</span></article><article class="pillar"><b>03</b><strong>Diseñamos</strong><span>Comparamos alternativas y armamos un programa alineado con cada necesidad.</span></article><article class="pillar"><b>04</b><strong>Acompañamos</strong><span>Revisamos y actualizamos la protección a medida que cambia cada realidad.</span></article><article class="pillar"><b>05</b><strong>Gestionamos siniestros</strong><span>Coordinamos la denuncia, la documentación y el seguimiento hasta la resolución.</span></article></div>
+</div></section>
+<section class="section dark" id="coberturas"><div class="shell" style="position:relative;z-index:1"><div class="section-head"><div class="eyebrow" style="color:var(--pale)">Coberturas por sector</div><h2>Protección adaptada a cada actividad.</h2><p>Conocer tu sector nos permite reconocer las exposiciones propias de la actividad y construir una cobertura más precisa.</p></div><div class="sector-grid"><article class="sector"><div class="sector-media"><img src="${SECTOR_BODEGAS}" alt="Viñedos de una bodega" loading="lazy"></div><h3>Bodegas</h3><p>Viñedos, elaboración, guarda, fraccionamiento, depósitos y turismo.</p></article><article class="sector"><div class="sector-media"><img src="${SECTOR_INDUSTRIA}" alt="Planta industrial en producción" loading="lazy"></div><h3>Industria</h3><p>Plantas, procesos productivos, activos críticos y continuidad operativa.</p></article><article class="sector"><div class="sector-media"><img src="${SECTOR_CONSTRUCCION}" alt="Obra en construcción" loading="lazy"></div><h3>Construcción</h3><p>Obras, montajes, equipos, contratos y responsabilidades de proyecto.</p></article><article class="sector"><div class="sector-media"><img src="${SECTOR_ENERGIA_MINERIA}" alt="Operación minera" loading="lazy"></div><h3>Energía y minería</h3><p>Operaciones complejas, contratistas y exposiciones de alta criticidad.</p></article><article class="sector"><div class="sector-media"><img src="${SECTOR_TRANSPORTE}" alt="Camión en un centro logístico" loading="lazy"></div><h3>Transporte y logística</h3><p>Flotas, cargas, depósitos y continuidad de la cadena logística.</p></article></div></div></section>
+<section class="section" id="empresas"><div class="shell"><div class="coverage-intro"><div class="section-head"><div class="eyebrow">Para empresas</div><h2>Coberturas que acompañan la operación.</h2></div><div class="coverage-guide"><strong>Primero, entender los riesgos</strong>Partimos de cómo funciona tu empresa, qué puede interrumpirla y qué consecuencias tendría. Después definimos cuáles de esos riesgos conviene prevenir, transferir o cubrir con seguros.</div></div><div class="solutions"><article class="solution"><div class="solution-media"><img src="${COVERAGE_PROPERTY}" alt="Equipos industriales en funcionamiento" loading="lazy"></div><div class="solution-copy"><h3>Patrimonio y operaciones</h3><p>Edificios, equipos, mercaderías, incendio, robo y daños materiales.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_LIABILITY}" alt="Firma de documentación profesional" loading="lazy"></div><div class="solution-copy"><h3>Responsabilidad civil</h3><p>Reclamos de terceros derivados de la actividad, productos o servicios.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_TRANSPORT}" alt="Camión de transporte en ruta" loading="lazy"></div><div class="solution-copy"><h3>Vehículos y transporte</h3><p>Flotas, vehículos, cargas en tránsito y operaciones logísticas.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_CONTRACTS}" alt="Profesional revisando planos y contratos" loading="lazy"></div><div class="solution-copy"><h3>Contratos y garantías</h3><p>Cauciones, cumplimiento contractual y garantías requeridas.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_TEAM}" alt="Equipo trabajando en conjunto" loading="lazy"></div><div class="solution-copy"><h3>Personas y equipos</h3><p>ART, vida, accidentes personales y protección de personas clave.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_SPECIAL}" alt="Tecnología vinculada con riesgos de ciberseguridad" loading="lazy"></div><div class="solution-copy"><h3>Riesgos especiales</h3><p>Cyber, RC profesional, D&amp;O y seguros técnicos a medida.</p></div></article></div></div></section>
+<section class="section personal-section" id="personas"><div class="shell"><div class="coverage-intro"><div class="section-head"><div class="eyebrow">Para personas</div><h2>Entender tus riesgos para proteger lo que importa.</h2></div><div class="coverage-guide"><strong>Primero, entender tu realidad</strong>Identificamos qué situaciones podrían afectar tu patrimonio, tu movilidad o tu familia. A partir de ese análisis, definimos cuáles merecen una cobertura de seguros.</div></div><div class="solutions"><article class="solution"><div class="solution-media"><img src="${COVERAGE_HOME}" alt="Vivienda y llaves de acceso" loading="lazy"></div><div class="solution-copy"><h3>Seguro de hogar</h3><p>Protección de tu vivienda y tus bienes frente a incendio, robo, daños y responsabilidad civil.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_AUTO}" alt="Automóvil particular estacionado" loading="lazy"></div><div class="solution-copy"><h3>Seguro de auto</h3><p>Coberturas para tu vehículo, quienes viajan en él y terceros, con asistencia cuando la necesitás.</p></div></article><article class="solution"><div class="solution-media"><img src="${COVERAGE_LIFE}" alt="Familia reunida al aire libre" loading="lazy"></div><div class="solution-copy"><h3>Seguro de vida</h3><p>Respaldo económico para acompañar a tu familia y proteger tus proyectos ante imprevistos.</p></div></article></div></div></section>
+<section class="contact" id="contacto"><div class="shell contact-grid"><div><div class="eyebrow">Contacto</div><h2>Conversemos sobre tus riesgos.</h2><p class="hero-lead">Podemos revisar tus coberturas actuales, analizar tu actividad o acompañarte ante un siniestro.</p></div><aside class="contact-card"><strong>Hablemos</strong><div class="contact-links"><a class="contact-link" href="mailto:gestion@delcampobroker.com"><i>✉</i> gestion@delcampobroker.com</a><a class="contact-link" href="tel:+5492612443475"><i>☎</i> +54 9 261 244-3475</a></div><div class="contact-actions"><a class="button primary" href="https://wa.me/5492612443475?text=Hola%2C%20quisiera%20conversar%20con%20un%20asesor%20sobre%20mis%20riesgos%20y%20coberturas." target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="button secondary" href="mailto:gestion@delcampobroker.com">Enviar un email</a></div></aside></div></section>
+</main>
+<footer class="footer"><div class="shell"><div class="footer-top"><a class="brand" href="#inicio"><span class="brand-mark"><img src="${BRAND_HORIZONTAL}" alt=""></span><span class="brand-copy"><strong>Del Campo</strong><span>Gestión de Riesgos</span><small>Productores Asesores de Seguros</small></span></a><nav class="footer-links" aria-label="Navegación secundaria"><a href="#nosotros">Quiénes somos</a><a href="#como-trabajamos">Cómo trabajamos</a><a href="#coberturas">Por sector</a><a href="#empresas">Empresas</a><a href="#personas">Personas</a><a href="#contacto">Contacto</a><a href="mailto:gestion@delcampobroker.com">gestion@delcampobroker.com</a></nav></div><div class="footer-bottom"><span>© 2026 Del Campo Broker de Seguros.</span><span>Argentina · +54 9 261 244-3475</span></div></div></footer>
+<a class="whatsapp-float" href="https://wa.me/5492612443475?text=Hola%2C%20quisiera%20conversar%20con%20un%20asesor%20sobre%20mis%20riesgos%20y%20coberturas." target="_blank" rel="noopener" aria-label="Escribir a Del Campo por WhatsApp"><img src="${WHATSAPP_ICON}" alt=""></a>
+<script>const toggle=document.getElementById('menuToggle'),links=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰'});links.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));</script>
+</body></html>`;
 
 export default {
   async fetch(request) {
-    const url = new URL(request.url);
-    const pathname = url.pathname.replace(/\/$/, "") || "/";
-    if (pathname === "/og.png") {
-      return new Response(decodeDataUrl(ogData), {
-        headers: { "content-type": "image/png", "cache-control": "public, max-age=31536000, immutable" },
-      });
-    }
+    const pathname = new URL(request.url).pathname.replace(/\/$/, "") || "/";
     if (pathname !== "/") return new Response("Not found", { status: 404 });
-    return new Response(renderHtml(url.origin), { headers: { "content-type": "text/html; charset=utf-8" } });
+    return new Response(html, { headers: {
+      "content-type": "text/html; charset=utf-8",
+      "cache-control": "public, max-age=300",
+      "content-security-policy": "default-src 'none'; img-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+    }});
   },
 };

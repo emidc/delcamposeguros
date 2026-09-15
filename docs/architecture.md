@@ -13,34 +13,28 @@ ES module artifact.
 method. It uses standard request, URL, response, and byte-array APIs available in
 the current Sites worker-style runtime.
 
-The worker handles three request outcomes:
+The worker handles two request outcomes:
 
 - `/` renders the complete HTML document.
-- `/og.png` decodes and returns the embedded Open Graph PNG.
 - Every other path returns `404 Not found`.
 
 A trailing slash is removed before routing, with the empty result normalized to
-`/`. The request origin is used to construct the absolute Open Graph and Twitter
-image URL.
+`/`.
 
 The HTML, CSS, visible content, and browser JavaScript are all returned from
-`worker/index.js`. Browser JavaScript manages the modal survey, device-local
-survey storage, clipboard export, toast messages, and the simulated contact-form
-submission. There are no runtime package imports or external application APIs.
+`worker/index.js`. Browser JavaScript manages only the responsive navigation
+menu. Contact actions use standard `mailto:`, `tel:`, and WhatsApp links. There
+are no runtime package imports or backend application APIs.
 
 ## Assets
 
-The source PNG files live in `assets/`:
+Sector, coverage, and official team photographs, the WhatsApp icon, and the
+official brand variants live in `assets/`.
 
-- `del-campo-logo.png`
-- `del-campo-favicon.png`
-- `del-campo-og.png`
-
-`worker/index.js` contains a placeholder for each asset. During the build,
-`scripts/embed-assets.mjs` reads each PNG, creates a base64 `data:image/png` URL,
-and replaces the matching placeholder in the generated worker. The logo and
-favicon are then referenced directly as data URLs in the HTML. The Open Graph
-image is decoded and served from `/og.png`.
+`worker/index.js` contains placeholders for the five sector JPEGs, nine coverage
+JPEGs, eight team JPEGs, two brand PNGs, and the WhatsApp SVG. During the build,
+`scripts/embed-assets.mjs` reads the source assets, creates base64 data URLs, and
+replaces the matching placeholders in the generated worker.
 
 Source assets and placeholders must remain aligned. Do not manually paste
 encoded raster data into `worker/index.js` or edit the generated artifact.

@@ -2,34 +2,37 @@
 
 ## Current product
 
-Del Campo Seguros is a Spanish-language concept website for Del Campo Broker de
-Seguros. It is currently presented as an internal prototype whose messages,
-priorities, and calls to action remain open for team discussion.
+Del Campo Seguros is the Spanish-language public website for Del Campo Broker de
+Seguros. It presents the broker's experience, working approach, coverage areas,
+and direct contact channels.
 
-The page addresses companies and individuals. It explains the broker's approach
-to understanding risk, comparing coverage, reviewing policies, managing claims,
-and supporting clients over time. Its central proposition is that useful
-insurance combines appropriate protection, clear advice, and human support.
+The page addresses companies and individuals. Coverage is organized in three
+clear paths: by business sector, for companies, and for people. The personal
+offering highlights home, auto, and life insurance. Both company and personal
+coverage paths begin by understanding the relevant risks before deciding which
+ones should be prevented, transferred, or insured.
 
 ## Current experience
 
 The single landing page includes:
 
-- Brand, value proposition, audiences, working method, services, team context,
-  and claims-support sections.
+- Brand and value proposition, service principles, team, working method,
+  sector-based coverage, company coverage, personal coverage, and contact
+  sections.
 - Navigation through anchors within the page.
-- A contact form demonstrating the intended conversation flow.
-- An eight-question internal survey used to discuss website positioning.
+- Direct contact through WhatsApp, phone, and
+  `gestion@delcampobroker.com` email links.
+- Professional Argentine voseo throughout the public-facing copy.
+- Contextual photography on every sector, company, and personal coverage card.
+- Official Del Campo Gestión de Riesgos brand assets in the header, hero, footer,
+  and browser icon.
+- A team section with official portraits and concise responsibilities for eight
+  members.
 - Responsive layouts for desktop and smaller screens.
 
 ## Current boundaries
 
-- The contact form does not submit or transmit data. It displays a message that
-  the final contact channel has not been selected.
-- Survey answers are stored only in the visitor's browser using `localStorage`.
-- Survey results can be copied for manual sharing but are not centralized.
 - There are no user accounts, server-side product records, persistent backend,
   or external service integrations.
-- Legal identity details, production contact information, and insurer details
-  are not yet part of the prototype.
-
+- Coverage information is descriptive; quoting and policy management happen
+  through the broker's direct contact channels.

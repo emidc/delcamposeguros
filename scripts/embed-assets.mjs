@@ -6,15 +6,38 @@ const projectRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const workerPath = resolve(projectRoot, "dist/server/index.js");
 
 const assets = [
-  ["__DEL_CAMPO_LOGO_DATA__", "assets/del-campo-logo.png"],
-  ["__DEL_CAMPO_FAVICON_DATA__", "assets/del-campo-favicon.png"],
-  ["__DEL_CAMPO_OG_DATA__", "assets/del-campo-og.png"],
+  ["__BRAND_ISOTIPO_DATA__", "assets/brand-isotipo.png"],
+  ["__BRAND_HORIZONTAL_DATA__", "assets/brand-horizontal.png"],
+  ["__SECTOR_BODEGAS_DATA__", "assets/sector-bodegas.jpg"],
+  ["__SECTOR_INDUSTRIA_DATA__", "assets/sector-industria.jpg"],
+  ["__SECTOR_CONSTRUCCION_DATA__", "assets/sector-construccion.jpg"],
+  ["__SECTOR_ENERGIA_MINERIA_DATA__", "assets/sector-energia-mineria.jpg"],
+  ["__SECTOR_TRANSPORTE_DATA__", "assets/sector-transporte.jpg"],
+  ["__WHATSAPP_ICON_DATA__", "assets/whatsapp.svg"],
+  ["__COVERAGE_PROPERTY_DATA__", "assets/coverage-property.jpg"],
+  ["__COVERAGE_LIABILITY_DATA__", "assets/coverage-liability.jpg"],
+  ["__COVERAGE_TRANSPORT_DATA__", "assets/coverage-transport.jpg"],
+  ["__COVERAGE_CONTRACTS_DATA__", "assets/coverage-contracts.jpg"],
+  ["__COVERAGE_TEAM_DATA__", "assets/coverage-team.jpg"],
+  ["__COVERAGE_SPECIAL_DATA__", "assets/coverage-special.jpg"],
+  ["__COVERAGE_HOME_DATA__", "assets/coverage-home.jpg"],
+  ["__COVERAGE_AUTO_DATA__", "assets/coverage-auto.jpg"],
+  ["__COVERAGE_LIFE_DATA__", "assets/coverage-life.jpg"],
+  ["__TEAM_MANUEL_DATA__", "assets/team-manuel.jpg"],
+  ["__TEAM_VICTORIA_DATA__", "assets/team-victoria.jpg"],
+  ["__TEAM_JIMENA_DATA__", "assets/team-jimena.jpg"],
+  ["__TEAM_LUCIA_DATA__", "assets/team-lucia.jpg"],
+  ["__TEAM_PILAR_DATA__", "assets/team-pilar.jpg"],
+  ["__TEAM_MATIAS_DATA__", "assets/team-matias.jpg"],
+  ["__TEAM_EVANGELINA_DATA__", "assets/team-evangelina.jpg"],
+  ["__TEAM_EMILIANO_DATA__", "assets/team-emiliano.jpg"],
 ];
 
 let source = await readFile(workerPath, "utf8");
 for (const [placeholder, relativePath] of assets) {
   const assetPath = resolve(projectRoot, relativePath);
-  const mime = extname(assetPath) === ".png" ? "image/png" : "application/octet-stream";
+  const extension = extname(assetPath);
+  const mime = extension === ".png" ? "image/png" : extension === ".jpg" ? "image/jpeg" : extension === ".svg" ? "image/svg+xml" : "application/octet-stream";
   const encoded = (await readFile(assetPath)).toString("base64");
   source = source.replaceAll(placeholder, `data:${mime};base64,${encoded}`);
 }
